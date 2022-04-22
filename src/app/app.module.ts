@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { StakeComponent } from './stake/stake.component';
+import { RoadMapComponent } from './road-map/road-map.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     HomeComponent,
-    StakeComponent
+    StakeComponent,
+    RoadMapComponent
   ],
   imports: [
     BrowserModule,

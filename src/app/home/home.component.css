@@ -1,8 +1,5 @@
 
 
-html {
-    background-color: black;
-}
 
 .default {
     width: 300px;
@@ -40,6 +37,10 @@ html {
 }
 
 @media only screen and (max-width: 600px){
+    * {
+        background: transparent;
+        background-color: #f159b4;
+    }
     .default {
        display: unset;
        width: 100px;
@@ -50,5 +51,8 @@ html {
     }
     .footer_image {
         height: 125px;
+    }
+    .temp {
+        height: 400px;
     }
 }

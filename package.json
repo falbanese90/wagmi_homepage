@@ -4,8 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "node server.js",
-    "build": "cd client && ng build",
-    "install": "cd client && npm install",
+    "build": "ng build",
+    "install": "npm install",
     "watch": "ng build --watch --configuration development",
     "heroku-postbuild": "ng build",
     "test": "ng test"

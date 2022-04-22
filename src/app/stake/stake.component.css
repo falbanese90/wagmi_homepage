@@ -38,3 +38,10 @@ html {
     background-color: #f159b4;
     /* border-style: dotted; */
 }
+@media only screen and (max-width: 600px){
+    .default {
+       display: unset;
+       width: 100px;
+       height: 150px;
+    }
+}

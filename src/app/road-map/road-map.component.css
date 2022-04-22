@@ -6,3 +6,39 @@
     background-color: #f159b4;
     /* border-style: dotted; */
 }
+
+.road_map_img {
+    margin-left: auto;
+    margin-right: auto; 
+    display: block;
+    height: 650px;
+    width: 1200px;
+}
+
+@media only screen and (max-width: 600px){
+    * {
+        background: transparent;
+        background-color: #f159b4;
+    }
+    .default {
+       display: unset;
+       width: 100px;
+       height: 150px;
+    }
+    .footer {
+        height: 500px;
+    }
+    .footer_image {
+        height: 125px;
+    }
+    .temp {
+        height: 250px;
+    }
+    .road_map_img {
+        width: 390px;
+        height: 300px;
+        margin-left: auto;
+        margin-right: auto; 
+        display: block;
+    }
+}

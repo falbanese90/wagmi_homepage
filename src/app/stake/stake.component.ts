@@ -25,21 +25,22 @@ const getProvider = () => {
   styleUrls: ['./stake.component.css']
 })
 export class StakeComponent implements OnInit {
+  public_key: String = 'Not Connected';
   
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  async connect(): Promise<String> {
+  async connect(): Promise<void> {
     {
     try {
       const resp = await window.solana.connect();
       const result = resp.publicKey.toString()
       window.alert(`${result} is connected and blockcahin ready`);
-      return result;
+      this.public_key = result;
   } catch (err) {
-      return "${err}";
+      console.log(`${err}`);
   }
     }
   }

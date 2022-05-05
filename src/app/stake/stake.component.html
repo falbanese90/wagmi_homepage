@@ -1,9 +1,8 @@
 <div style="display: flex;">
-  <button (click)="connect()" class="button4" style="display: block; margin-left: auto; margin-right: auto; width: 50%; flex: 1;">Connect Phantom</button>
-  <p style="display: block; margin-left: auto; margin-right: auto; width: 50%; flex: 1;">Wallet: {{ public_key }}</p>
+    <button (click)="connect()" class="button4" style="display: block; margin-left: auto; margin-right: auto; width: 50%; flex: 1;">Connect Phantom</button>
+  <p style="display: block; float: right; margin-right: 20px;">Wallet: {{ public_key }}</p>
 </div>
   
-  <button class="button4" style="display: block; margin-left: auto; margin-right: auto; width: 50%;">Stake</button>
   <div style="display: flex;">
 <div class="wallet-container" style="flex:1;">
   <img src="./assets/stake/wallet.svg" style="height: 100px; display: block; margin-left: auto; margin-right: auto; width: 50%;">
@@ -13,10 +12,23 @@
 </div>
 </div>
 <div style="display: flex;">
-  <div style="height: 1000px; flex: 1;">
-
-    <img class='default center' src="./assets/stake/5643-dead.png">
+  <div style="height: 500px; flex: 1;">
+    <div *ngIf="this.image_present && !this.staked">
+      <img class='default center' src="./assets/stake/5643-dead.png" style="margin-top: 50px;">
+    </div>
+    
   </div>
-  <div style="height: 1000px; flex: 1;">
+  <div style="height: 500px; flex: 1;">
+    <div *ngIf="this.image_present && this.staked">
+      <img class='default center' src="./assets/stake/5643-dead.png" style="margin-top: 50px;">
+    </div>
   </div>
 </div>
+<div *ngIf="this.image_present && !this.staked">
+<button (click)="stake()" class="button4" style="display: block; margin-left: auto; margin-right: auto; width: 50%; margin-top: 100px;">Stake</button>
+</div>
+<div *ngIf="this.image_present && this.staked">
+  <button (click)="unstake()" class="button4" style="display: block; margin-left: auto; margin-right: auto; width: 50%; margin-top: 100px;">Unstake</button>
+  </div>
+<div style="display: flex; height: 500px;"></div>
+

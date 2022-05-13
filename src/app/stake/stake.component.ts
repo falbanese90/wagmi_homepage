@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, NgZone, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import * as solanaWeb3 from '@solana/web3.js';
-import { EventEmitter } from 'stream';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Staked } from '../models/staked';
 import { StakingService } from '../staking_service/staking.service';
 
@@ -31,12 +31,15 @@ export class StakeComponent implements OnInit {
   staked: boolean = false;
   image_present: boolean = false;
   staked_list: Staked[] = [];
+  reward: number = 0;
+  stake_date: string = '';
+
   
   constructor(private stakeService: StakingService) {}
 
   ngOnInit(): void {
   }
- 
+
   async connect(): Promise<void> {
     try {
       const resp = await window.solana.connect();
@@ -50,12 +53,7 @@ export class StakeComponent implements OnInit {
       this.staked_list = res;
       if (this.staked_list.length >= 1) {
         this.staked = true;
-        this.stakeService.getTime(this.public_key).subscribe(res => {
-          this.timestamp = res;
-        });
-
-        console.log(this.staked)
-        console.log(this.timestamp);
+        console.log(this.staked);
       }
       console.log(this.staked)
     })
@@ -66,13 +64,21 @@ export class StakeComponent implements OnInit {
   }
 
 
-  stake() {
+  async stake() {
     this.stakeService.addStaked(this.public_key);
+    await new Promise(r => setTimeout(r, 500));
     this.staked = true;
+     this.stakeService.select(this.public_key).subscribe(res => {
+      this.staked_list = res;
+    });
+    this.stakeService.getTime(this.public_key).subscribe(res => {
+      this.stake_date = res;
+    })
   }
+
   unstake() {
     this.stakeService.del(this.public_key).subscribe(() => console.log('Stake ended'));
     this.staked = false;
+    this.staked_list = []
   }
-
 }

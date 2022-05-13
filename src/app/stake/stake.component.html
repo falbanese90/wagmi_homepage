@@ -1,8 +1,18 @@
 <div style="display: flex;">
     <button (click)="connect()" class="button4" style="display: block; margin-left: auto; margin-right: auto; width: 50%; flex: 1;">Connect Phantom</button>
-  <p style="display: block; float: right; margin-right: 20px;">Wallet: {{ public_key }}</p>
+  <p style="display: block; float: right; margin-right: 20px;">Wallet: {{ public_key.slice(0, 4) }}...{{ public_key.slice(40) }}</p>
 </div>
-  
+  <div class="stats_banner">
+    <div class="stats_child">
+      <h4>Staked Nfts: {{ this.staked_list.length }}</h4>
+    </div>
+    <div class="stats_child">
+      <h4>Unclaimed Reward: </h4>
+    </div>
+    <div class="stats_child">
+      <h4>Claimed Rewards: </h4>
+    </div>
+  </div>
   <div style="display: flex;">
 <div class="wallet-container" style="flex:1;">
   <img src="./assets/stake/wallet.svg" style="height: 100px; display: block; margin-left: auto; margin-right: auto; width: 50%;">

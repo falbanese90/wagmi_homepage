@@ -6,6 +6,22 @@ html {
     background-color: black;
 }
 
+.stats_banner {
+    display: flex;
+    border: solid;
+    height: 100px;
+    text-align: center;
+}
+
+.stats_child {
+    flex: 1;
+    text-align: center;
+    height: 100px;
+    margin-top: auto;
+    margin-bottom: auto;
+    height: 50%;
+}
+
 .center {
     display: block;
     margin-left: auto;

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Staked } from '../models/staked';
+import { Staked, Time } from '../models/staked';
  
 
 @Injectable({
@@ -25,8 +25,8 @@ export class StakingService {
   index(): Observable<Staked[]> {
     return this.http.get<Staked[]>('http://localhost:3000/staked');
   }
-  getTime(pub: string): Observable<string> {
-    return this.http.get<string>(`http://localhost:3000/staked/time/${pub}`);
+  getTime(pub: string) {
+    return this.http.get<Time>(`http://localhost:3000/staked/time/${pub}`);
   }
 }
 

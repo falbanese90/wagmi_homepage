@@ -1,19 +1,22 @@
 
 
-
 .default {
+    width: 300px;
+    height: 500px;
+}
+
+.default_tv {
     width: 300px;
     height: 500px;
     box-shadow: 0px 0px 20px black;
 }
 
 .temp {
-    height: 500px;
-    width: 33.3%;
+    flex: 1;
     float: left;
     text-align: center;
+    padding-top: 10px;
     background-color: #f159b4;
-    padding: 20px;
     /* border-style: dotted; */
 }
 
@@ -21,6 +24,12 @@
     background-color: lightgray;
 }
 
+.banner {
+    display: flex;
+    height: 500px;
+    width: 100%;
+
+}
 .nav_container {
     height: 50px;
     /* border-bottom: 2px solid black; */
